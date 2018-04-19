@@ -1,0 +1,12 @@
+- name: Clone git repository
+  become: true
+  become_method: sudo
+  git: 
+    dest=/var/www/
+    repo=https://github.com/kamalgill/flask-appengine-template.git
+    update=no
+  sudo_user: www-data
+  
+  tasks:
+    - name: Install requirements
+      pip: requirements='{{ repository_path }}/requirements.txt'
