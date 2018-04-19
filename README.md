@@ -35,14 +35,14 @@ Second the layout of this project follows the following
   
   
  **Thing that need to be added**
- #change instance group template to execute ansible scripts on deployment, in the Provision "exec" section for when = create
+ - change instance group template to execute ansible scripts on deployment, in the Provision "exec" section for when = create
  
- #on Detroy in intance group have service take server out of the loadbalancer
+ - on Detroy in intance group have service take server out of the loadbalancer
  
- # implement a http(s) loadbalancer in front of the 2 scaled services.
- # move databse server to be under the subnet2 of the subnets available. this way only subnet one will be world accessible and subnet 2 will be a private vpc
- # enable google stackdriver on database and virtual machines. ( this way we can see metrics of application use)
- # setup logstash to aggregate log data from ngnix and ssh .
- # create time base IAM service accounts that way a temporary admin user could be created and automatically removed form the services. 
- # created shared drive between ngnix instances to host the deployed code pulled via git though the ansible scripts. 
+ - implement a http(s) loadbalancer in front of the 2 scaled services.
+ - move databse server to be under the subnet2 of the subnets available. this way only subnet one will be world accessible and subnet 2 will be a private vpc
+ - enable google stackdriver on database and virtual machines. ( this way we can see metrics of application use)
+ - setup logstash to aggregate log data from ngnix and ssh .
+ - create time base IAM service accounts that way a temporary admin user could be created and automatically removed form the services. 
+ - created shared drive between ngnix instances to host the deployed code pulled via git though the ansible scripts. 
 
