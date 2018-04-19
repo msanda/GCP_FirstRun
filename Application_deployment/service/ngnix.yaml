@@ -1,0 +1,29 @@
+---
+-hosts: app
+ become: true
+ tasks:
+  - name: Install packages
+    apt: name={{ item }} update_cache=yes state latest
+    with_items:
+      - git
+      - mcrypt
+      - ngnix
+      - python2
+
+  - name: Setup Ngnix
+    template:
+      src=ngnix.conf.tpl
+      dest=/etc/ngnix/ngnix.conf
+    notify: restart ngnix
+  
+  - name: Clone sample app
+
+env_variables:
+    
+handlers:
+  - name: restart nginx
+    service:
+      name=ngnix
+      state=restarted
+  - url: /
+    script: main.app

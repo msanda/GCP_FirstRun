@@ -1,0 +1,17 @@
+---
+-hosts: app
+ become: true
+ tasks:
+  - name: Install packages
+    apt: name={{ item }} update_cache=yes state latest
+    with_items:
+      - git
+      - mcrypt
+      - ngnix
+      - python2
+
+env_variables:
+  CLOUDSQL_CONNECTION_NAME: your-connection-name
+  CLOUDSQL_USER: default
+  CLOUDSQL_PASSWORD: simpletest
+    

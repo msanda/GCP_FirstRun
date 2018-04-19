@@ -23,7 +23,7 @@ resource "google_compute_instance" "default" {
     //Want to place this machine in the subnet 
     subnetwork = "gcpsubnet1"
 
-    //access_config = {0.0.0.0}
+    access_config = {0.0.0.0}
   }
 
   metadata {

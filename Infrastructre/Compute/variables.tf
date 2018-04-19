@@ -1,11 +1,3 @@
-# variable "gcloud-project" {
-#   default = "abletogcpproject"
-# }
-
-# variable "gcloud-region" {
-#   default = "us-east1-b"
-# }
-
 variable "network-name" {
   default = "gcpsubnet"
 }

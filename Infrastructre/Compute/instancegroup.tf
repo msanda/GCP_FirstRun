@@ -17,14 +17,7 @@ resource "google_compute_instance_template" "default" {
   }
 
   network_interface {
-    //network = "${var.network-name}"
-
     subnetwork = "${var.subnet1}"
-
-    //access_config      = ["${var.access_config}"]
-
-
-    //address            = "${var.network_ip}"
 
     address            = ""
     subnetwork_project = "abletogcpproject"
@@ -40,20 +33,11 @@ resource "google_compute_instance_template" "default" {
     source_image = "ubuntu-1604-xenial-v20170328"
 
     type = "PERSISTENT"
-
-    //disk_type = "pd-ssd"
   }
 
-  #   metadata = "${merge(
-
-
-  #     map("startup-script", "${var.startup_script}", "tf_depends_id", "${var.depends_id}"),
-
-
-  #     var.metadata
-
-
-  #   )}"
+  metadata {
+    enable-oslogin = "True"
+  }
 
   lifecycle {
     create_before_destroy = true
@@ -86,9 +70,6 @@ resource "google_compute_instance_group_manager" "default" {
   instance_template  = "${google_compute_instance_template.default.self_link}"
   zone               = "us-east1-b"
   update_strategy    = "RESTART"
-
-  //target_pools = ["""]
-
 
   // we want 2 deployed instances
 
@@ -135,11 +116,5 @@ resource "google_compute_autoscaler" "default" {
     min_replicas = "1"
 
     cooldown_period = "60"
-
-    #cpu_utilization            = [""]
-
-    #metric                     = [""]
-
-    #load_balancing_utilization = [""]
   }
 }
