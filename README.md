@@ -1,8 +1,8 @@
 
 
-The Purpose of this Project is to show hwo one can deploy to Google cloud platform using a bunch of automated steps.
+The Purpose of this Project is to show how one can deploy to Google cloud platform using only automation.
 
-First of This project is based of a git flow branching strategy. All concepts start off with a Feature branch, which is later merged to the develop branch and merged to master.
+This project structure is based of a git flow branching strategy. All concepts start off with a Feature branch, which is later merged to the develop branch and merged to master.
 
 Second the layout of this project follows the following
 
