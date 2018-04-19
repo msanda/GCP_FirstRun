@@ -4,3 +4,8 @@
 
 # Module directory
 .terraform/
+
+#secrets
+secrets/*
+
+account_gc.json

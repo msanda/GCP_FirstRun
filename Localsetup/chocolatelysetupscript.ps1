@@ -30,3 +30,7 @@ choco install terraform --force --force-dependencies -y
 
 # restart Computer after everything has been installed
 shutdown /r /t 0 /d P:0:0
+
+
+## install google cloud cli tools
+# https://cloud.google.com/sdk/docs/quickstart-windows
