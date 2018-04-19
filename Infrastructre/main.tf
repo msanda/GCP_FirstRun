@@ -1,4 +1,4 @@
-variable "gcloud-project" {
+/* variable "gcloud-project" {
   default = "abletogcpproject"
 }
 
@@ -28,7 +28,7 @@ variable "ip_cidr_range1" {
 
 variable "ip_cidr_range2" {
   default = "10.0.1.0/24"
-}
+} */
 
 provider "google" {
   credentials = "${file("../secrets/account_gc.json")}"
