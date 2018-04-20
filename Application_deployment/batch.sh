@@ -1,4 +1,4 @@
-sudo apt-get install python-pip python-dev ngnix -y
+sudo apt-get install python-pip python-dev nginx -y
 sudo mkdir /var/www/app
 cd /var/www/app
 wget https://raw.githubusercontent.com/GoogleCloudPlatform/python-docs-samples/master/appengine/standard/cloudsql/main.py
