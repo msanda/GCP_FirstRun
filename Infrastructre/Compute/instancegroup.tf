@@ -21,6 +21,11 @@ resource "google_compute_instance_template" "default" {
 
     address            = ""
     subnetwork_project = "abletogcpproject"
+
+    access_config {
+      // Ephemeral IP
+      nat_ip = ""
+    }
   }
 
   can_ip_forward = "false"
@@ -30,13 +35,16 @@ resource "google_compute_instance_template" "default" {
 
     boot = true
 
-    source_image = "ubuntu-1604-xenial-v20170328"
+    //source_image = "ubuntu-1604-xenial-v20170328"
+    //use custom image with wordpress
+    source_image = "ableto-wordpress-image-opt"
 
     type = "PERSISTENT"
   }
 
   metadata {
     enable-oslogin = "True"
+    startup-script = "/mysqlproxy/cloud_sql_proxy -instances=abletogcpproject:us-east1:abletogc-database=tcp:3306 &"
   }
 
   lifecycle {
